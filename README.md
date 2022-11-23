@@ -1,3 +1,42 @@
+目前项目中有一个问题
+设置的响应拦截
+service.interceptors.response.use(res => {
+    const code : number = res.data.code
+    if(code !== 200){
+        return Promise.reject(res.data)
+    }
+    return res.data
+},(err) => {
+    console.log(err)
+})
+
+已知接口成功的状态码都为200
+
+如果当前为登录页面，就需要将if(code !== 200)  更改为 if(code == 200)  这样就不会报错，如果不更改，就会出现Uncaught(in promise)的错误，
+
+将if(code !== 200)  更改为 if(code == 200) 以后，进入系统，就会得不到商品信息，就需要重新更改为code !== 200
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # vue3-ts-demo
 
 This template should help get you started developing with Vue 3 in Vite.
